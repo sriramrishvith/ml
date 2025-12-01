@@ -1,0 +1,43 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+data = [['1', 'M', 34, 123, 'Normal', 350],
+['2', 'F', 40, 114, 'Overweight', 450],
+['3', 'F', 37, 135, 'Obesity', 169],
+['4', 'M', 30, 139, 'Underweight', 189],
+['5', 'F', 44, 117, 'Underweight', 183],
+['6', 'M', 36, 121, 'Normal', 80],
+['7', 'M', 32, 133, 'Obesity', 166],
+['8', 'F', 26, 140, 'Normal', 120],
+['9', 'M', 32, 133, 'Normal', 75],
+['10', 'M', 36, 133, 'Underweight', 40] ]
+df = pd.DataFrame(data, columns = ['EMPID', 'Gender','Age', 'Sales','BMI', 'Income'] )
+
+print("Histogram")
+df.hist()
+plt.show()
+
+print("Bar chart") 
+df.plot.bar()
+plt.bar(df['Age'], df['Sales']) 
+plt.xlabel("Age") 
+plt.ylabel("Sales") 
+plt.show()
+
+print("Box Plot chart") 
+df.plot.box() 
+plt.boxplot(df['Income']) 
+plt.show()
+
+print("Pie Chart") 
+plt.pie(df['Age'], labels = {"A", "B", "C", "D", "E", "F","G", "H", "I", "J"},autopct ='% 1.1f %%', shadow = True)
+plt.show()
+plt.pie(df['Income'], labels = {"A", "B", "C", "D", "E", "F","G", "H", "I", "J"},autopct ='% 1.1f %%', shadow = True)
+plt.show()
+plt.pie(df['Sales'], labels = {"A", "B", "C","D", "E", "F","G", "H", "I", "J"},autopct ='% 1.1f %%', shadow = True)
+plt.show()
+ 
+print("Scatter plot")
+plt.scatter(df['Income'],df['Sales'])
+plt.show()
+plt.scatter(df['Sales'],df['Age'])
+plt.show()
